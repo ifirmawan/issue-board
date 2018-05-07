@@ -15,6 +15,16 @@ class CreateIssuesTable extends Migration
     {
         Schema::create('issues', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('category_id')->unsigned()->nullable();
+            $table->integer('diterima_oleh')->unsigned()->nullable();
+            $table->integer('pelapor')->unsigned();
+            $table->string('no_laporan')->nullable();
+            $table->dateTime('waktu_laporan')->nullable();
+            $table->text('keterangan')->nullable();
+            $table->enum('prioritas',['low','medium','high'])->nullable();
+            $table->dateTime('waktu_selesai')->nullable();
+            $table->integer('periode')->nullable();
+            $table->string('durasi_penanganan')->nullable();
             $table->timestamps();
         });
     }

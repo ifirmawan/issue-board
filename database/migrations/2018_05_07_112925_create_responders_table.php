@@ -15,6 +15,9 @@ class CreateRespondersTable extends Migration
     {
         Schema::create('responders', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('issue_id')->unsigned()->nullable();
+            $table->integer('ditangani_oleh')->unsigned()->nullable();
+            $table->text('penanganan')->nullable();
             $table->timestamps();
         });
     }
